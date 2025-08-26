@@ -5,16 +5,27 @@ import '../home/widgets/glow_dot.dart';
 import '../home/widgets/nav_button.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget{
-  Header({super.key});
+  final GlobalKey kHero;
+  final GlobalKey kSummary;
+  final GlobalKey kExperience;
+  final GlobalKey kEducation;
+  final GlobalKey kProjects;
+  final GlobalKey kSkills;
+  final GlobalKey kLanguages;
+  final GlobalKey kContact;
 
-  final GlobalKey _kHero = GlobalKey();
-  final GlobalKey _kSummary = GlobalKey();
-  final GlobalKey _kExperience = GlobalKey();
-  final GlobalKey _kEducation = GlobalKey();
-  final GlobalKey _kProjects = GlobalKey();
-  final GlobalKey _kSkills = GlobalKey();
-  final GlobalKey _kLanguages = GlobalKey();
-  final GlobalKey _kContact = GlobalKey();
+  const Header({
+    super.key,
+    required this.kHero,
+    required this.kSummary,
+    required this.kExperience,
+    required this.kEducation,
+    required this.kProjects,
+    required this.kSkills,
+    required this.kLanguages,
+    required this.kContact,
+  });
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +47,17 @@ class Header extends StatelessWidget implements PreferredSizeWidget{
         ],
       ),
       actions: [
-        NavButton('Inicio', () => _goTo(_kHero)),
-        NavButton('Resumen', () => _goTo(_kSummary)),
-        NavButton('Experiencia', () => _goTo(_kExperience)),
-        NavButton('Formación', () => _goTo(_kEducation)),
-        NavButton('Proyectos', () => _goTo(_kProjects)),
-        NavButton('Habilidades', () => _goTo(_kSkills)),
-        NavButton('Idiomas', () => _goTo(_kLanguages)),
+        NavButton('Inicio', () => _goTo(kHero)),
+        NavButton('Resumen', () => _goTo(kSummary)),
+        NavButton('Experiencia', () => _goTo(kExperience)),
+        NavButton('Formación', () => _goTo(kEducation)),
+        NavButton('Proyectos', () => _goTo(kProjects)),
+        NavButton('Habilidades', () => _goTo(kSkills)),
+        NavButton('Idiomas', () => _goTo(kLanguages)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: FilledButton.icon(
-            onPressed: () => _goTo(_kContact),
+            onPressed: () => _goTo(kContact),
             icon: const Icon(Icons.send_rounded),
             label: const Text('Contacto'),
           ),

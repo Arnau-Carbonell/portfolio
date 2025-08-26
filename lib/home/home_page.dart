@@ -11,8 +11,6 @@ import 'sections/language_section.dart';
 import 'sections/projects_section.dart';
 import 'sections/skills_section.dart';
 import 'sections/summary_section.dart';
-import 'widgets/glow_dot.dart';
-import 'widgets/nav_button.dart';
 import 'widgets/section.dart';
 
 class HomePage extends StatefulWidget {
@@ -40,7 +38,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: Header(),
+      appBar: Header(
+        kHero: _kHero,
+        kSummary: _kSummary,
+        kExperience: _kExperience,
+        kEducation: _kEducation,
+        kProjects: _kProjects,
+        kSkills: _kSkills,
+        kContact: _kContact,
+        kLanguages: _kLanguages,
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
