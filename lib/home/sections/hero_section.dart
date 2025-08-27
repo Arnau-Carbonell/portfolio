@@ -72,7 +72,7 @@ class HeroSection extends StatelessWidget {
                       ),
                       OutlinedButton.icon(
                         onPressed: () => openUrl(
-                            'https://tudominio.com/CV_ArnauCarbonell.pdf'),
+                            'https://arnaucarbonell.com/CV_ArnauCarbonell.pdf'),
                         icon: const Icon(Icons.picture_as_pdf_rounded, color: Colors.white,),
                         label: const Text('Descargar CV',style: TextStyle( color: Colors.white),),
                       ),
