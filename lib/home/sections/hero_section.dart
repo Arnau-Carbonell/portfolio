@@ -27,7 +27,6 @@ class HeroSection extends StatelessWidget {
                 crossAxisAlignment:
                 isWide ? CrossAxisAlignment.start : CrossAxisAlignment.center,
                 children: [
-                  Text('Hola, soy', style: TextStyle(color: Colors.white70)),
                   Text(
                     'Arnau Carbonell',
                     textAlign: isWide ? TextAlign.left : TextAlign.center,
@@ -72,7 +71,7 @@ class HeroSection extends StatelessWidget {
                       ),
                       OutlinedButton.icon(
                         onPressed: () => openUrl(
-                            'https://arnaucarbonell.com/CV_ArnauCarbonell.pdf'),
+                            'https://arnaucarbonell.com/files/CV_ArnauCarbonell.pdf'),
                         icon: const Icon(Icons.picture_as_pdf_rounded, color: Colors.white,),
                         label: const Text('Descargar CV',style: TextStyle( color: Colors.white),),
                       ),

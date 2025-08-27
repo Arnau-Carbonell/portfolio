@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/header/header.dart';
 
 import '../footer/footer.dart';
@@ -22,6 +21,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scroll = ScrollController();
+  double scrollOffset = 0.0;
+  int scrollFactor = 500;
 
   final GlobalKey _kHero = GlobalKey();
   final GlobalKey _kSummary = GlobalKey();
@@ -32,10 +33,21 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey _kLanguages = GlobalKey();
   final GlobalKey _kContact = GlobalKey();
 
-
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(() {
+      setState(() {
+        scrollOffset = _scroll.offset;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final progress = (scrollOffset / height).clamp(0.0, 1.0);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: Header(
@@ -61,14 +73,47 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Section(key: _kHero, child: const HeroSection()),
-              Section(key: _kSummary, child: const SummarySection()),
-              Section(key: _kExperience, child: const ExperienceSection()),
-              Section(key: _kEducation, child: const EducationSection()),
-              Section(key: _kProjects, child: const ProjectsSection()),
-              Section(key: _kSkills, child: const SkillsSection()),
-              Section(key: _kLanguages, child: const LanguagesSection()),
-              Section(key: _kContact, child: const ContactSection()),
+              // HERO con fade
+              Opacity(
+                opacity: (1 - (progress * 2)).clamp(0.0, 1.0),
+                child: Transform.translate(
+                  offset: Offset(0, -progress * 50),
+                  child: Section(
+                    key: _kHero,
+                    child: const HeroSection(),
+                  ),
+                ),
+              ),
+
+              Transform.translate(
+                offset: Offset(0, -progress * scrollFactor), // ajusta este valor
+                child: Section(key: _kSummary, child: const SummarySection()),
+              ),
+              Transform.translate(
+                offset: Offset(0, -progress * scrollFactor),
+                child: Section(key: _kExperience, child: const ExperienceSection()),
+              ),
+              Transform.translate(
+                offset: Offset(0, -progress * scrollFactor),
+                child: Section(key: _kEducation, child: const EducationSection()),
+              ),
+              Transform.translate(
+                offset: Offset(0, -progress * scrollFactor),
+                child: Section(key: _kProjects, child: const ProjectsSection()),
+              ),
+              Transform.translate(
+                offset: Offset(0, -progress * scrollFactor),
+                child: Section(key: _kSkills, child: const SkillsSection()),
+              ),
+              Transform.translate(
+                offset: Offset(0, -progress * scrollFactor),
+                child: Section(key: _kLanguages, child: const LanguagesSection()),
+              ),
+              Transform.translate(
+                offset: Offset(0, -progress * scrollFactor),
+                child: Section(key: _kContact, child: const ContactSection()),
+              ),
+
               const Footer(),
             ],
           ),
