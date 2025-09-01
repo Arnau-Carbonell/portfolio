@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/header/header.dart';
 
 import '../footer/footer.dart';
@@ -62,21 +63,22 @@ class _HomePageState extends State<HomePage> {
         kLanguages: _kLanguages,
       ),
       endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
+        backgroundColor: const Color(0xFF0f2027),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(color: Colors.blueGrey),
               child: Text('Menú'),
             ),
-            ListTile(title: const Text('Inicio'), onTap: () => goTo(_kHero)),
-            ListTile(title: const Text('Resumen'), onTap: () => goTo(_kSummary)),
-            ListTile(title: const Text('Experiencia'), onTap: () => goTo(_kExperience)),
-            ListTile(title: const Text('Formación'), onTap: () => goTo(_kEducation)),
-            ListTile(title: const Text('Proyectos'), onTap: () => goTo(_kProjects)),
-            ListTile(title: const Text('Habilidades'), onTap: () => goTo(_kSkills)),
-            ListTile(title: const Text('Idiomas'), onTap: () => goTo(_kLanguages)),
-            ListTile(title: const Text('Contacto'), onTap: () => goTo(_kContact)),
+            const Spacer(),
+            Divider(color: Colors.white24, thickness: 1),
+
+            _drawerItem(
+              icon: Icons.send_rounded,
+              text: 'Contacto',
+              onTap: () => goTo(_kContact),
+            ),
           ],
         ),
       ),
@@ -93,52 +95,50 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // HERO con fade
               Opacity(
                 opacity: (1 - (progress * 2)).clamp(0.0, 1.0),
                 child: Transform.translate(
-                  offset: Offset(0, -progress * 50),
-                  child: Section(
-                    key: _kHero,
-                    child: const HeroSection(),
-                  ),
+                  offset: Offset(0, progress * 600),
+                  child: Section(key: _kHero, child: const HeroSection()),
                 ),
               ),
 
-              Transform.translate(
-                offset: Offset(0, -progress * scrollFactor), // ajusta este valor
-                child: Section(key: _kSummary, child: const SummarySection()),
-              ),
-              Transform.translate(
-                offset: Offset(0, -progress * scrollFactor),
-                child: Section(key: _kExperience, child: const ExperienceSection()),
-              ),
-              Transform.translate(
-                offset: Offset(0, -progress * scrollFactor),
-                child: Section(key: _kEducation, child: const EducationSection()),
-              ),
-              Transform.translate(
-                offset: Offset(0, -progress * scrollFactor),
-                child: Section(key: _kProjects, child: const ProjectsSection()),
-              ),
-              Transform.translate(
-                offset: Offset(0, -progress * scrollFactor),
-                child: Section(key: _kSkills, child: const SkillsSection()),
-              ),
-              Transform.translate(
-                offset: Offset(0, -progress * scrollFactor),
-                child: Section(key: _kLanguages, child: const LanguagesSection()),
-              ),
-              Transform.translate(
-                offset: Offset(0, -progress * scrollFactor),
-                child: Section(key: _kContact, child: const ContactSection()),
-              ),
+              Section(key: _kSummary, child: const SummarySection()),
+
+              Section(key: _kExperience, child: const ExperienceSection()),
+
+              Section(key: _kEducation, child: const EducationSection()),
+
+              Section(key: _kProjects, child: const ProjectsSection()),
+
+              Section(key: _kSkills, child: const SkillsSection()),
+
+              Section(key: _kLanguages, child: const LanguagesSection()),
+
+              Section(key: _kContact, child: const ContactSection()),
 
               const Footer(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _drawerItem({
+    required IconData icon,
+    required String text,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.white70),
+      title: Text(text, style: GoogleFonts.montserrat(color: Colors.white)),
+      onTap: () {
+        onTap();
+        Navigator.pop(context);
+      },
+      hoverColor: Colors.white10,
+      splashColor: Colors.white24,
     );
   }
 }

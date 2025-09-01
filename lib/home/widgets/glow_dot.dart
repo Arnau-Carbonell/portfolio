@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GlowDot extends StatefulWidget {
-  const GlowDot();
+  const GlowDot({super.key});
 
   @override
   State<GlowDot> createState() => _GlowDotState();

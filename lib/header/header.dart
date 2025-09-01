@@ -35,7 +35,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
 
         return AppBar(
           elevation: 0,
-          backgroundColor: Colors.black.withValues(alpha: 0.12),
+          backgroundColor: Colors.black.withOpacity(0.12),
           surfaceTintColor: Colors.transparent,
           shadowColor: Colors.transparent,
           toolbarHeight: 72,
@@ -84,8 +84,6 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       },
     );
   }
-
-
 
   @override
   Size get preferredSize => const Size.fromHeight(72);
