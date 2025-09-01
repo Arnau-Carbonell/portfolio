@@ -67,9 +67,69 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blueGrey),
-              child: Text('Menú'),
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF203a43), Color(0xFF2c5364)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Arnau Carbonell',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Flutter Developer',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.white70,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            _drawerItem(
+              icon: Icons.home_rounded,
+              text: 'Inicio',
+              onTap: () => goTo(_kHero),
+            ),
+            _drawerItem(
+              icon: Icons.article_rounded,
+              text: 'Resumen',
+              onTap: () => goTo(_kSummary),
+            ),
+            _drawerItem(
+              icon: Icons.work_outline_rounded,
+              text: 'Experiencia',
+              onTap: () => goTo(_kExperience),
+            ),
+            _drawerItem(
+              icon: Icons.school_rounded,
+              text: 'Formación',
+              onTap: () => goTo(_kEducation),
+            ),
+            _drawerItem(
+              icon: Icons.folder_copy_rounded,
+              text: 'Proyectos',
+              onTap: () => goTo(_kProjects),
+            ),
+            _drawerItem(
+              icon: Icons.settings_rounded,
+              text: 'Habilidades',
+              onTap: () => goTo(_kSkills),
+            ),
+            _drawerItem(
+              icon: Icons.language_rounded,
+              text: 'Idiomas',
+              onTap: () => goTo(_kLanguages),
             ),
             const Spacer(),
             Divider(color: Colors.white24, thickness: 1),
