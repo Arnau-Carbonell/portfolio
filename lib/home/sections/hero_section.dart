@@ -65,11 +65,6 @@ class HeroSection extends StatelessWidget {
                         label: const Text('Email', style: TextStyle( color: Colors.white),),
                       ),
                       OutlinedButton.icon(
-                        onPressed: () => openUrl('tel:+34615926677'),
-                        icon: const Icon(Icons.phone_rounded, color: Colors.white,),
-                        label: const Text('Llamar', style: TextStyle( color: Colors.white),),
-                      ),
-                      OutlinedButton.icon(
                         onPressed: () => openUrl(
                             'https://arnaucarbonell.com/files/CV_ArnauCarbonell.pdf'),
                         icon: const Icon(Icons.picture_as_pdf_rounded, color: Colors.white,),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/utils/open_url.dart';
 
 import '../../utils/card_wrap.dart';
 
@@ -13,12 +14,15 @@ class ProjectsSection extends StatelessWidget {
       child: Wrap(
         spacing: 16,
         runSpacing: 16,
-        children: const [
-          _ProjectCard(
-            title: 'Conector Autodesk Vault ↔ ERP',
-            description:
-            'App Flutter/Dart que integra Autodesk Vault con Microsoft Business Central y Odoo. '
-                'Integración con APIs SOAP/REST. Proyecto con certificación oficial de Autodesk.',
+        children: [
+          GestureDetector(
+            onTap: () => openUrl('https://aps.autodesk.com/app-store/certified-apps/rainbowlink-desktop'),
+            child: const _ProjectCard(
+              title: 'Conector Autodesk Vault ↔ ERP',
+              description:
+              'App Flutter/Dart que integra Autodesk Vault con Microsoft Business Central y Odoo. '
+                  'Integración con APIs SOAP/REST. Proyecto con certificación oficial de Autodesk.',
+            ),
           ),
         ],
       ),

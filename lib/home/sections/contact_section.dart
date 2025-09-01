@@ -20,11 +20,6 @@ class ContactSection extends StatelessWidget {
             label: const Text('arnauc32@gmail.com'),
           ),
           OutlinedButton.icon(
-            onPressed: () => openUrl('tel:+34615926677'),
-            icon: const Icon(Icons.phone_rounded, color: Colors.white,),
-            label: const Text('+34 615 92 66 77', style: TextStyle(color: Colors.white),),
-          ),
-          OutlinedButton.icon(
             onPressed: () => openUrl(
                 'https://www.linkedin.com/in/arnau-carbonell-71165827a'),
             icon: const Icon(Icons.launch_rounded, color: Colors.white,),
