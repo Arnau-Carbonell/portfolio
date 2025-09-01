@@ -3,8 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../home/widgets/glow_dot.dart';
 import '../home/widgets/nav_button.dart';
+import '../utils/go_to.dart';
 
-class Header extends StatelessWidget implements PreferredSizeWidget{
+class Header extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey kHero;
   final GlobalKey kSummary;
   final GlobalKey kExperience;
@@ -26,57 +27,66 @@ class Header extends StatelessWidget implements PreferredSizeWidget{
     required this.kContact,
   });
 
-
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.black.withOpacity(0.12),
-      surfaceTintColor: Colors.transparent,
-      shadowColor: Colors.transparent,
-      toolbarHeight: 72,
-      titleSpacing: 12,
-      title: Row(
-        children: [
-          const GlowDot(),
-          const SizedBox(width: 10),
-          Text(
-            'Arnau Carbonell',
-            style: GoogleFonts.montserrat(fontWeight: FontWeight.w700, color: Colors.white),
+    return LayoutBuilder(
+      builder: (ctx, constraints) {
+        final isMobile = constraints.maxWidth < 1020;
+
+        return AppBar(
+          elevation: 0,
+          backgroundColor: Colors.black.withValues(alpha: 0.12),
+          surfaceTintColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          toolbarHeight: 72,
+          titleSpacing: 12,
+          title: Row(
+            children: [
+              const GlowDot(),
+              const SizedBox(width: 10),
+              Text(
+                'Arnau Carbonell',
+                style: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-      actions: [
-        NavButton('Inicio', () => _goTo(kHero)),
-        NavButton('Resumen', () => _goTo(kSummary)),
-        NavButton('Experiencia', () => _goTo(kExperience)),
-        NavButton('Formación', () => _goTo(kEducation)),
-        NavButton('Proyectos', () => _goTo(kProjects)),
-        NavButton('Habilidades', () => _goTo(kSkills)),
-        NavButton('Idiomas', () => _goTo(kLanguages)),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: FilledButton.icon(
-            onPressed: () => _goTo(kContact),
-            icon: const Icon(Icons.send_rounded),
-            label: const Text('Contacto'),
-          ),
-        ),
-      ],
+          actions: isMobile
+              ? [
+            // Menú hamburguesa
+            Builder(
+              builder: (context) => IconButton(
+                icon: const Icon(Icons.menu, color: Colors.white),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
+              ),
+            ),
+          ]
+              : [
+            NavButton('Inicio', () => goTo(kHero)),
+            NavButton('Resumen', () => goTo(kSummary)),
+            NavButton('Experiencia', () => goTo(kExperience)),
+            NavButton('Formación', () => goTo(kEducation)),
+            NavButton('Proyectos', () => goTo(kProjects)),
+            NavButton('Habilidades', () => goTo(kSkills)),
+            NavButton('Idiomas', () => goTo(kLanguages)),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: FilledButton.icon(
+                onPressed: () => goTo(kContact),
+                icon: const Icon(Icons.send_rounded),
+                label: const Text('Contacto'),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
-  Future<void> _goTo(GlobalKey key) async {
-    final ctx = key.currentContext;
-    if (ctx == null) return;
-    await Scrollable.ensureVisible(
-      ctx,
-      alignment: 0.05,
-      duration: const Duration(milliseconds: 700),
-      curve: Curves.easeInOutCubic,
-    );
-  }
+
+
 
   @override
   Size get preferredSize => const Size.fromHeight(72);
-
 }

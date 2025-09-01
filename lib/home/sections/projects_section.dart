@@ -54,7 +54,7 @@ class _ProjectCardState extends State<_ProjectCard> {
           width: 320,
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.06),
+            color: Colors.white.withValues(alpha: .06),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: Colors.white12),
           ),

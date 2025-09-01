@@ -33,7 +33,7 @@ class _GlowDotState extends State<GlowDot>
           color: const Color(0xFF22D3EE),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF22D3EE).withOpacity(.7),
+              color: const Color(0xFF22D3EE).withValues(alpha: .7),
               blurRadius: 16,
               spreadRadius: 2,
             ),

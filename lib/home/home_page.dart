@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/header/header.dart';
 
 import '../footer/footer.dart';
+import '../utils/go_to.dart';
 import 'sections/contact_section.dart';
 import 'sections/education_section.dart';
 import 'sections/experience_section.dart';
@@ -59,6 +60,25 @@ class _HomePageState extends State<HomePage> {
         kSkills: _kSkills,
         kContact: _kContact,
         kLanguages: _kLanguages,
+      ),
+      endDrawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blueGrey),
+              child: Text('Menú'),
+            ),
+            ListTile(title: const Text('Inicio'), onTap: () => goTo(_kHero)),
+            ListTile(title: const Text('Resumen'), onTap: () => goTo(_kSummary)),
+            ListTile(title: const Text('Experiencia'), onTap: () => goTo(_kExperience)),
+            ListTile(title: const Text('Formación'), onTap: () => goTo(_kEducation)),
+            ListTile(title: const Text('Proyectos'), onTap: () => goTo(_kProjects)),
+            ListTile(title: const Text('Habilidades'), onTap: () => goTo(_kSkills)),
+            ListTile(title: const Text('Idiomas'), onTap: () => goTo(_kLanguages)),
+            ListTile(title: const Text('Contacto'), onTap: () => goTo(_kContact)),
+          ],
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(
