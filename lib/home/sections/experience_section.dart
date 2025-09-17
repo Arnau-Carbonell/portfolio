@@ -22,7 +22,7 @@ class ExperienceSection extends StatelessWidget {
       ExperienceItem(
         company: 'Onduex, Alcoi',
         role: 'Programador en prácticas',
-        period: 'Mar 2023 – Sep 2023',
+        period: 'Mar 2023 – Feb 2024',
         bullets: const [
           'Desarrollo multiplataforma con Dart/Flutter',
           'Implementación de features y optimización',
