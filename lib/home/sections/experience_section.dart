@@ -29,7 +29,7 @@ class ExperienceSection extends StatelessWidget {
         ],
       ),
       ExperienceItem(
-        company: 'Proyecto Odoo',
+        company: 'Onduex, Alcoi',
         role: 'Desarrollador (prácticas)',
         period: 'Mar 2021 – Jun 2021',
         bullets: const [
@@ -99,7 +99,6 @@ class _TimelineItemState extends State<_TimelineItem> with SingleTickerProviderS
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // línea timeline
               SizedBox(
                 width: 40,
                 child: Column(
@@ -123,7 +122,6 @@ class _TimelineItemState extends State<_TimelineItem> with SingleTickerProviderS
                 ),
               ),
               const SizedBox(width: 8),
-              // contenido
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
