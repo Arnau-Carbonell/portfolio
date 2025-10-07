@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/open_url.dart';
 
@@ -65,10 +66,9 @@ class HeroSection extends StatelessWidget {
                         label: const Text('Email', style: TextStyle( color: Colors.white),),
                       ),
                       OutlinedButton.icon(
-                        onPressed: () => openUrl(
-                            'https://arnaucarbonell.com/files/CV_ArnauCarbonell.pdf'),
+                        onPressed: () => openUrl('files/CV_ArnauCarbonell.pdf'),
                         icon: const Icon(Icons.picture_as_pdf_rounded, color: Colors.white,),
-                        label: const Text('Descargar CV',style: TextStyle( color: Colors.white),),
+                        label: const Text('Ver CV',style: TextStyle( color: Colors.white),),
                       ),
                     ],
                   ),

@@ -11,12 +11,17 @@
         "source": "/files/**",
         "headers": [
           {
+            "key": "Content-Type",
+            "value": "application/pdf"
+          },
+          {
             "key": "Content-Disposition",
-            "value": "attachment"
+            "value": "attachment; filename=\"CV_ArnauCarbonell.pdf\""
           }
         ]
       }
     ],
+
     "rewrites": [
       {
         "source": "**",
