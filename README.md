@@ -1,6 +1,6 @@
 # portfolio
 
-A new Flutter project.
+Experiencia y hablidades de Arnau Carbonell
 
 ## Getting Started
 
