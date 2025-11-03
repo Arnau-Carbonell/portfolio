@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/card_wrap.dart';
 import '../../utils/open_url.dart';
@@ -15,7 +16,7 @@ class ContactSection extends StatelessWidget {
         runSpacing: 12,
         children: [
           FilledButton.icon(
-            onPressed: () => openUrl('mailto:arnauc32@gmail.com'),
+            onPressed: () => openEmail(),
             icon: const Icon(Icons.mail_outline_rounded),
             label: const Text('arnauc32@gmail.com'),
           ),

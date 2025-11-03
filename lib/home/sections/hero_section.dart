@@ -61,7 +61,7 @@ class HeroSection extends StatelessWidget {
                         label: const Text('LinkedIn'),
                       ),
                       OutlinedButton.icon(
-                        onPressed: () => openUrl('mailto:arnauc32@gmail.com'),
+                        onPressed: () => openEmail(),
                         icon: const Icon(Icons.mail_outline_rounded, color: Colors.white,),
                         label: const Text('Email', style: TextStyle( color: Colors.white),),
                       ),

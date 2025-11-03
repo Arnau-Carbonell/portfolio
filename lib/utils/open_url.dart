@@ -6,3 +6,17 @@ Future<void> openUrl(String url) async {
     throw 'No se pudo abrir: $url';
   }
 }
+
+
+
+Future<void> openEmail() async {
+  final Uri emailUri = Uri(
+    scheme: 'mailto',
+    path: 'arnauc32@gmail.com',
+    query: 'subject=Consulta desde la web&body=Hola Arnau,',
+  );
+
+  if (await canLaunchUrl(emailUri)) {
+    await launchUrl(emailUri);
+  }
+}
