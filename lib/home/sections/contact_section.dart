@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/card_wrap.dart';
 import '../../utils/open_url.dart';
